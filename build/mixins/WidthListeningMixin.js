@@ -16,14 +16,14 @@ var WidthListeningMixin = {
     listenToWindowResize: React.PropTypes.bool
   },
 
-  getDefaultProps: function() {
+  getDefaultProps: function getDefaultProps() {
     return {
       initialWidth: 1280,
       listenToWindowResize: true
     };
   },
 
-  componentDidMount: function() {
+  componentDidMount: function componentDidMount() {
     if (this.props.listenToWindowResize) {
       window.addEventListener('resize', this.onWindowResize);
       // This is intentional. Once to properly set the breakpoint and resize the elements,
@@ -33,14 +33,14 @@ var WidthListeningMixin = {
     }
   },
 
-  componentWillUnmount() {
+  componentWillUnmount: function componentWillUnmount() {
     window.removeEventListener('resize', this.onWindowResize);
   },
 
   /**
    * On window resize, update width.
    */
-  onWindowResize: function() {
+  onWindowResize: function onWindowResize() {
     this.onWidthChange(ReactDOM.findDOMNode(this).offsetWidth);
   }
 
